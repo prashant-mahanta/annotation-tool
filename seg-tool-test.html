@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--Some of the code modules are taken from Abhishek Dutta's codebase.-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Layout Analysis Tool</title>
+    <!-- Enter your javascript script here -->
+    <!-- <script src="buoy.js"></script> -->
+    <!-- <script type="text/javascript" src="clickMe.js"></script> -->
+
+
+    <!-- <script type="text/javascript">
+      clickMe.helloWorld({
+        book: "name",
+        package: ["nan", "nan1", "nan2"]
+      });
+    </script> -->
+  <!-- end of header script -->
+    <!-- CSS style definition -->
+    <link rel="stylesheet" href="seg-tool-styles.css">
+  </head>
+
+  <body onresize="_update_ui_components()" >
+    <div id="master" ></div>
+
+    <!-- <script type="text/javascript" src="require.js"></script> -->
+    <script type="text/javascript" src="seg-tool-scripts.js"></script>
+    <script type="text/javascript">
+
+      var data = {
+        container_id: "master",
+        shapes: [
+          {
+            name: 'rectangle',
+            code: 'rect',
+            region_shape: 'RECT'
+          },
+          {
+            name: 'circle',
+            code: 'circle',
+            region_shape: 'CIRCLE'
+          },
+          {
+            name: 'polygon',
+            code: 'polygon',
+            region_shape: 'POLYGON'
+          },
+          {
+            name: 'ellipse',
+            code: 'ellipse',
+            region_shape: 'ELLIPSE'
+          },
+
+        ]
+      };
+
+      // get the saved JSON data to this variable(json_data) 
+      var json_data = '{"region":[{"region_name":"text","region_color":"#66ff99","region_description":"text content","region_attributes":[{"att_name":"language","att_type":true},{"att_name":"abc","att_type":false}]},{"region_name":"graphic","region_color":"#ff0000","region_description":"graphic content","region_attributes":[{"att_name":"language","att_type":false},{"att_name":"adbc","att_type":true}]},{"region_name":"table","region_color":"#ffff00","region_description":"Table content","region_attributes":[{"att_name":"abcd","att_type":true},{"att_name":"mabc","att_type":true}]}]}';
+      try{
+        var read_json = JSON.parse(json_data); 
+      }
+      catch(err){
+        read_json = {region:[]}
+      }
+
+
+      data["region"] = read_json["region"];
+
+      // initialize the seg tool
+      _init_seg_tool(data);
+
+    </script>
+
+
+
+  </body>
+</html>
